@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Editar Acomodación</h1>
+<form action="{{ url_for('acomodation.edit', id=accommodation.id) }}" method="post">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="name" value="{{ accommodation.name }}" required>
+    <label for="address">Dirección</label>
+    <input type="text" id="address" name="address" value="{{ accommodation.address }}" required>
+    <label for="phoneNumber">Teléfono</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" value="{{ accommodation.phoneNumber }}">
+    <label for="web">Web</label>
+    <input type="text" id="web" name="web" value="{{ accommodation.web }}">
+    <label for="stars_quality">Calificación</label>
+    <input type="number" id="stars_quality" name="stars_quality" value="{{ accommodation.stars_quality }}" min="1" max="5">
+    <label for="description">Descripción</label>
+    <textarea id="description" name="description">{{ accommodation.description }}</textarea>
+    <label for="type">Tipo</label>
+    <select id="type" name="type">
+        <option value="hotel" {% if accommodation.type == 'hotel' %}selected{% endif %}>Hotel</option>
+        <option value="house" {% if accommodation.type == 'house' %}selected{% endif %}>Casa</option>
+    </select>
+    <button type="submit">Actualizar</button>
+</form>
+{% endblock %}
