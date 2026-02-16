@@ -4,7 +4,7 @@ from datetime import datetime
 from decimal import Decimal, InvalidOperation
 
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from models.carRenting import db, CarRenting
+from models import db, CarRenting
 
 # This blueprint groups all routes for car renting.
 carRentingBlueprint = Blueprint("carRenting", __name__, url_prefix="/car-renting")

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, flash, redirect, url_for, request, session
-from models import Accommodation, db
+from models import User, Accommodation, db, AccommodationBookingLine, Room
 
 acomodation_bp = Blueprint('aco', __name__, template_folder='../templates')
 
@@ -11,9 +11,6 @@ def admin_dashboard():
     if "user_id" not in session or session.get("role") != "admin": # changed to admin lowercase
         flash('Permission denied')
         return redirect(url_for('aco.home'))
-        
-    from models.User import User
-    from equipo3.models.AccommodationBookingLine import AccommodationBookingLine
     
     users = User.query.all()
     accommodations = Accommodation.query.all()
@@ -189,8 +186,6 @@ def add_room(id):
     if session["user_id"] != accommodation.idCompany and session.get("role") != "admin":
         flash('Permission denied')
         return redirect(url_for('aco.home'))
-        
-    from equipo3.models.Room import Room
     
     new_room = Room(
         idAccommodation=id,

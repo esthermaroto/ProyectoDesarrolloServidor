@@ -1,5 +1,5 @@
-from models.flight_repository import FlightRepository
-from models.flight import Flight
+from models.repositories.FlightRepository import FlightRepository
+from models import Flight
 from datetime import datetime
 
 class FlightController:

@@ -1,10 +1,5 @@
 from flask import Blueprint, request, jsonify, render_template, redirect, url_for, session, flash
-from models.db import db
-from equipo3.models.Accommodation import Accommodation
-from equipo3.models.AccommodationBookingLine import AccommodationBookingLine
-from equipo3.models.Review import Review
-from equipo3.models.Room import Room
-from models.User import User
+from models import db, Accommodation,  AccommodationBookingLine, Review, Room, User
 from datetime import datetime
 
 booking_bp = Blueprint('booking', __name__, template_folder='../templates')

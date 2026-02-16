@@ -1,10 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
-from models import db
-from models.grupo4.Trip import Trip
-from models.grupo4.Location import Location
-from models.User import User
+from models import db, Trip, Location, User
 from datetime import datetime
-
 
 trip_bp = Blueprint('trip', __name__, url_prefix='/trips')
 
